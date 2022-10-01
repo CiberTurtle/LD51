@@ -6,6 +6,9 @@ export var moveIncAir = 24.0
 export var moveDecAir = 8.0
 export var moveMax = 128.0
 
+export var extraDec = 12.0
+export var extraDecAir = 6.0
+
 export var jumpHeightMin = 16.0
 export var jumpHeightMax = 40.0
 
@@ -48,16 +51,16 @@ func do_move(delta):
 		hMoveSpeed = 0
 		hExtraSpeed = 0
 
-	hExtraSpeed = move_toward(hExtraSpeed, 0, (moveDec if grounded else moveDecAir));
+	hExtraSpeed = move_toward(hExtraSpeed, 0, (extraDec if grounded else extraDecAir));
 
 func do_grav(delta):
 	if(is_on_ceiling()):
 		# Hit ceiling so stop going up
-		vSpeed = 0
+		if vSpeed < 0: vSpeed = 0
 
 	if(is_on_floor()):
 		# Hit floor so stop falling
-		vSpeed = 0
+		if vSpeed > 0: vSpeed = 0
 	else:
 		# Fall
 		vSpeed += gravity
