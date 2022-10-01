@@ -82,7 +82,7 @@ func do_jump(delta):
 
 	if(inputJumpCancel):
 		# Cancel jump
-		var jumpSpeedMin = -sqrt(2 * (gravity ) * jumpHeightMin)
+		var jumpSpeedMin = -sqrt(2 * (gravity / delta) * jumpHeightMin)
 		if(vSpeed < jumpSpeedMin):
 			vSpeed = jumpSpeedMin
 	inputJumpCancel = false
