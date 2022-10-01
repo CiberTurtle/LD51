@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://Player.png" type="Texture" id=2]
-[ext_resource path="res://Textures/Light/Light 2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Player/Player.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Torch/Torch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Textures/Light/Light 1.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Torch/Torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Textures/Light/Light 2.png" type="Texture" id=5]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -18,7 +18,7 @@ polygon = PoolVector2Array( -5, -7, 5, -7, 5, 7, -5, 7 )
 z_index = 5
 texture = ExtResource( 2 )
 
-[node name="Torch" parent="Flip" instance=ExtResource( 5 )]
+[node name="Torch" parent="Flip" instance=ExtResource( 3 )]
 position = Vector2( 15, -6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -26,12 +26,12 @@ position = Vector2( -1, 1 )
 current = true
 process_mode = 0
 smoothing_enabled = true
-editor_draw_drag_margin = true
+smoothing_speed = 3.5
 
 [node name="Main light" type="Light2D" parent="."]
 visible = false
 scale = Vector2( 0.641667, 0.641667 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 color = Color( 0.811765, 0.631373, 0.14902, 1 )
 mode = 2
 

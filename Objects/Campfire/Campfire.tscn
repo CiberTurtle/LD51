@@ -28,11 +28,6 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
 
-[node name="Personal light" type="Light2D" parent="."]
-scale = Vector2( 0.299072, 0.299072 )
-texture = ExtResource( 4 )
-range_item_cull_mask = 64
-
 [node name="On" type="Node2D" parent="."]
 visible = false
 
@@ -84,10 +79,17 @@ scale_amount_curve = SubResource( 1 )
 color_ramp = SubResource( 2 )
 color_initial_ramp = SubResource( 3 )
 
+[node name="Personal light" type="Light2D" parent="On"]
+scale = Vector2( 0.299072, 0.299072 )
+texture = ExtResource( 4 )
+range_item_cull_mask = 64
+
 [node name="Off" type="Node2D" parent="."]
 
 [node name="Off" type="Sprite" parent="Off"]
-light_mask = 64
 texture = ExtResource( 1 )
 
-[connection signal="area_entered" from="." to="." method="_on_Campfire_area_entered"]
+[node name="Base2" type="Light2D" parent="Off"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+energy = 0.5
