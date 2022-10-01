@@ -45,13 +45,13 @@ energy = 0.5
 texture = ExtResource( 4 )
 texture_scale = 1.5
 color = Color( 0.980392, 0.709804, 0.6, 1 )
-energy = 0.65
+energy = 0.45
 
 [node name="Fill2" type="Light2D" parent="On"]
 texture = ExtResource( 4 )
 texture_scale = 0.5
 color = Color( 0.980392, 0.913725, 0.6, 1 )
-energy = 0.5
+energy = 0.4
 
 [node name="Particles2D" type="CPUParticles2D" parent="On"]
 amount = 48
