@@ -7,8 +7,8 @@
 [ext_resource path="res://Assets/Campfire/Campfire.gd" type="Script" id=5]
 [ext_resource path="res://Sound/Ambience/Fire.ogg" type="AudioStream" id=6]
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 20.0
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 12, 8 )
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 25.25, 0, 1, Vector2( 0.039604, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.506818 ), -0.513519, 0.0, 1, 0 ]

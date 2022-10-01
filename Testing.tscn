@@ -13,6 +13,7 @@
 color = Color( 0, 0, 0, 1 )
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 light_mask = 512
 margin_left = -750.0
 margin_top = -869.0
@@ -45,11 +46,18 @@ is_on = true
 position = Vector2( 537, 102 )
 
 [node name="Launcher" parent="." instance=ExtResource( 6 )]
-position = Vector2( -118, 87 )
+position = Vector2( -192, 88 )
 
 [node name="Launcher2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 286, 47 )
+position = Vector2( 286, 48 )
 hSpeed = -600
 
 [node name="Fireflies" parent="." instance=ExtResource( 5 )]
 position = Vector2( 332, 22 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 23.0
+margin_top = 35.0
+margin_right = 96.0
+margin_bottom = 49.0
+text = "Hello world"
