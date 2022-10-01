@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Off.png-b3d00e98f7edef09c4bb26a9e825d537.stex"
+path="res://.import/Off.png-aa09ecbfd787912d10b6eaf1f6592b45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Campfire/Off.png"
-dest_files=[ "res://.import/Off.png-b3d00e98f7edef09c4bb26a9e825d537.stex" ]
+source_file="res://Assets/Campfire/Off.png"
+dest_files=[ "res://.import/Off.png-aa09ecbfd787912d10b6eaf1f6592b45.stex" ]
 
 [params]
 

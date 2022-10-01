@@ -1,6 +1,6 @@
 extends Area2D
 
-const Campfire = preload("res://Objects/Campfire/Campfire.gd")
+const Campfire = preload("res://Assets/Campfire/Campfire.gd")
 
 export var time = 10.0
 var timer = 0.0
@@ -42,3 +42,5 @@ func _physics_process(delta):
 func update():
 	$On.visible = is_on
 	$Off.visible = !is_on
+	$On/Sound.playing = is_on
+	$Particles2D.emitting = is_on

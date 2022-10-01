@@ -8,3 +8,4 @@ func _ready():
 func update():
 	$On.visible = is_on
 	$Off.visible = !is_on
+	$On/Sound.playing = is_on
