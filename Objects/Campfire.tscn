@@ -37,6 +37,7 @@ light_mask = 64
 texture = ExtResource( 2 )
 
 [node name="Base" type="Light2D" parent="On"]
+visible = false
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 energy = 0.5
@@ -95,6 +96,7 @@ max_distance = 256.0
 texture = ExtResource( 1 )
 
 [node name="Base2" type="Light2D" parent="Off"]
+visible = false
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 energy = 0.5

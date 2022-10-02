@@ -98,6 +98,7 @@ texture = ExtResource( 5 )
 [node name="Personal light" type="Light2D" parent="Off"]
 scale = Vector2( 0.299072, 0.299072 )
 texture = ExtResource( 3 )
+energy = 0.75
 range_item_cull_mask = 32
 shadow_item_cull_mask = 32
 

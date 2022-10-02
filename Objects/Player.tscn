@@ -19,7 +19,7 @@ z_index = 5
 texture = ExtResource( 2 )
 
 [node name="Torch" parent="Flip" instance=ExtResource( 3 )]
-position = Vector2( 15, -6 )
+position = Vector2( 12, -3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -1, 1 )
