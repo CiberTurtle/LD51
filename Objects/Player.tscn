@@ -1,10 +1,52 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Torch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Textures/Light/Light 1.png" type="Texture" id=4]
 [ext_resource path="res://Textures/Light/Light 2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Skock.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Shock"
+length = 4.0
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skock:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skock:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.133333, 0.4, 3.33333, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skock:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 3.33333, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -17 ), Vector2( 0, -16 ), Vector2( 0, -16 ), Vector2( 0, -12 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -41,3 +83,32 @@ scale = Vector2( 0.632812, 0.632812 )
 texture = ExtResource( 4 )
 energy = 0.2
 mode = 2
+
+[node name="Skock" type="Sprite" parent="."]
+position = Vector2( 0, -17 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shock = SubResource( 1 )
+
+[node name="Say" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="Say"]
+visible = false
+margin_left = -128.0
+margin_top = -128.0
+margin_right = 128.0
+margin_bottom = -16.0
+text = "Hello world"
+align = 1
+valign = 2
+autowrap = true
+
+[node name="Timer" type="Timer" parent="Say"]
+wait_time = 2.0
+
+[node name="Tween" type="Tween" parent="Say"]
+
+[connection signal="timeout" from="Say/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="tween_completed" from="Say/Tween" to="." method="_on_Tween_tween_completed"]

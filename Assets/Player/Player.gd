@@ -103,3 +103,20 @@ func get_input():
 
 	if(Input.action_release("pickup")):
 		inputPickup = true
+
+func say(text: String):
+	var charTime = 1.0 / 30
+
+	$Say/Text.text = text
+	$Say/Tween.interpolate_property($Say/Text, 'percent_visible', 0, 1, text.length() * charTime)
+	$Say/Tween.start()
+	$Say/Text.visible = true
+
+func _on_Tween_tween_completed(object, key):
+	var text = $Say/Text.text
+	var charTime = 1.0 / 8
+
+	$Say/Timer.start(text.length() * charTime)
+
+func _on_Timer_timeout():
+	$Say/Text.visible = false
