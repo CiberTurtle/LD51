@@ -27,6 +27,7 @@ func _on_Boost_body_entered(body):
 	player.hExtraSpeed = sign(player.hMoveSpeed) * strength
 	player.vSpeed = sign(player.vSpeed) * strength
 	player.coyoteTimer = -1
+	# player.global_position = global_position
 
 	speed = boostSpeed
 

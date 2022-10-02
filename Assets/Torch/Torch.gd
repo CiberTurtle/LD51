@@ -2,6 +2,7 @@ extends Area2D
 
 const Campfire = preload("res://Assets/Campfire/Campfire.gd")
 const EggTree = preload("res://Assets/EggTree/EggTree.gd")
+const Lamp = preload("res://Assets/Lamp/Lamp.gd")
 
 export var time = 10.0
 var timer = 0.0
@@ -12,7 +13,7 @@ func _ready():
 	update()
 
 func _process(delta):
-	if(Input.is_action_just_pressed("debug_relight")):
+	if Input.is_action_just_pressed("debug_relight"):
 		timer = time
 
 	lerpedTimer = move_toward(lerpedTimer, timer, delta * 50)
@@ -25,7 +26,7 @@ func _process(delta):
 func _physics_process(delta):
 	timer -= delta;
 
-	if(timer > 0 != is_on):
+	if timer > 0 != is_on:
 		is_on = timer > 0
 		update()
 
@@ -38,11 +39,19 @@ func _physics_process(delta):
 				if is_on:
 					fire.is_on = true
 					fire.update()
-		else:
-			var tree = body as EggTree
-			if tree:
-				if is_on:
-					tree.burn()
+			return
+
+		var tree = body as EggTree
+		if tree:
+			if is_on:
+				tree.burn()
+			return
+
+		var lamp = body as Lamp
+		if lamp:
+			if is_on:
+				lamp.light()
+			return
 
 func update():
 	$On.visible = is_on

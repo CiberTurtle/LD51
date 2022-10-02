@@ -43,7 +43,7 @@ speedDec = 4.0
 shape = SubResource( 1 )
 
 [node name="Art" type="Node2D" parent="."]
-modulate = Color( 1, 0, 0.192595, 1 )
+modulate = Color( 0.0539527, 0, 1, 1 )
 
 [node name="Ring" type="Sprite" parent="Art"]
 material = ExtResource( 5 )

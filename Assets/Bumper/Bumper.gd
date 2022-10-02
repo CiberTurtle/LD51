@@ -12,9 +12,6 @@ func _on_Bumper_body_entered(body):
 	var diff = player.global_position - global_position;
 	var dir = diff.normalized()
 
-	print(diff)
-	print(dir)
-
 	# Apply velocity
 	player.hExtraSpeed = dir.x * strength
 	player.vSpeed = dir.y * strength
