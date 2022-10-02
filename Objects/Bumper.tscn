@@ -7,6 +7,7 @@
 radius = 12.0
 
 [node name="Bumper" type="Area2D"]
+z_index = -1
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

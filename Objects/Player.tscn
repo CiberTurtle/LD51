@@ -66,7 +66,6 @@ polygon = PoolVector2Array( -5, -7, 5, -7, 5, 7, -5, 7 )
 [node name="Flip" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Flip"]
-z_index = 5
 texture = ExtResource( 2 )
 
 [node name="Torch" parent="Flip" instance=ExtResource( 3 )]
@@ -118,6 +117,9 @@ autowrap = true
 wait_time = 2.0
 
 [node name="Tween" type="Tween" parent="Say"]
+
+[node name="Say_" type="Node2D" parent="."]
+visible = false
 
 [node name="Step" type="Node2D" parent="."]
 
