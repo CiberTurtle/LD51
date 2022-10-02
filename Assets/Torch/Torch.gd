@@ -1,6 +1,7 @@
 extends Area2D
 
 const Campfire = preload("res://Assets/Campfire/Campfire.gd")
+const EggTree = preload("res://Assets/EggTree/EggTree.gd")
 
 export var time = 10.0
 var timer = 0.0
@@ -30,14 +31,18 @@ func _physics_process(delta):
 
 	for body in get_overlapping_areas():
 		var fire = body as Campfire
-		if not fire: return
-
-		if fire.is_on:
-			timer = time
+		if fire:
+			if fire.is_on:
+				timer = time
+			else:
+				if is_on:
+					fire.is_on = true
+					fire.update()
 		else:
-			if is_on:
-				fire.is_on = true
-				fire.update()
+			var tree = body as EggTree
+			if tree:
+				if is_on:
+					tree.burn()
 
 func update():
 	$On.visible = is_on

@@ -9,9 +9,11 @@ func _on_Bumper_body_entered(body):
 	var player = body as Player
 	# Skip non players
 	if not player: return
-
-	var diff = player.position - position;
+	var diff = player.global_position - global_position;
 	var dir = diff.normalized()
+
+	print(diff)
+	print(dir)
 
 	# Apply velocity
 	player.hExtraSpeed = dir.x * strength
