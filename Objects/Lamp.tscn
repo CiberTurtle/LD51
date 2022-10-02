@@ -28,11 +28,11 @@ texture = ExtResource( 2 )
 [node name="Fill" type="Light2D" parent="On"]
 texture = ExtResource( 1 )
 texture_scale = 0.75
-color = Color( 0.980392, 0.709804, 0.6, 1 )
-energy = 0.5
+color = Color( 0.854902, 0.945098, 0.94902, 1 )
+energy = 0.35
 
 [node name="Value" type="Light2D" parent="On"]
 texture = ExtResource( 1 )
 texture_scale = 0.75
-color = Color( 0.980392, 0.913725, 0.6, 1 )
-energy = 0.85
+color = Color( 0.854902, 0.945098, 0.94902, 1 )
+energy = 0.75
