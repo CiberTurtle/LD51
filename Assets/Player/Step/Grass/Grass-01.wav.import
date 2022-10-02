@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Grass-01.wav-06fe8a85a7a33a86b5aca408eec35dd5.sample"
+
+[deps]
+
+source_file="res://Assets/Player/Step/Grass/Grass-01.wav"
+dest_files=[ "res://.import/Grass-01.wav-06fe8a85a7a33a86b5aca408eec35dd5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

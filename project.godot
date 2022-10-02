@@ -16,12 +16,12 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=480
 window/size/height=270
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="keep"
+window/size/width=480
 
 [editor_plugins]
 
@@ -103,3 +103,4 @@ vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
+environment/size/width=480

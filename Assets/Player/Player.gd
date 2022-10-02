@@ -21,6 +21,10 @@ export var jumpBufferTime = 0.1
 var coyoteTimer = -1.0
 var jumpBufferTimer = -1.0
 
+export var stepTime = 0.2
+export var stepTimeVar = 0.025
+var stepTimer = 0
+
 func _ready():
 	pass
 
@@ -44,6 +48,12 @@ func do_move(delta):
 		hMoveSpeed += inputMoveDir * (moveInc if grounded else moveIncAir);
 		hMoveSpeed = clamp(hMoveSpeed, -moveMax, moveMax);
 		$Flip.scale.x = inputMoveDir;
+
+		if grounded:
+			stepTimer -= delta
+			if stepTimer < 0:
+				stepTimer = stepTime
+				$Step/Grass.play()
 	else: # Slowing down
 		hMoveSpeed = move_toward(hMoveSpeed, 0, (moveDec if grounded else moveDecAir));
 
@@ -60,7 +70,9 @@ func do_grav(delta):
 
 	if(is_on_floor()):
 		# Hit floor so stop falling
-		if vSpeed > 0: vSpeed = 0
+		if vSpeed > 0:
+			vSpeed = 0
+			if vSpeed > gravity * 8: $Step/Grass.play()
 	else:
 		# Fall
 		vSpeed += gravity

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sound/Ambience/Night Ambience 1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Main/Background.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/VisibleOnStart.gd" type="Script" id=3]
+
+[node name="Main" type="Node2D"]
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.67, 0.67, 0.67, 1 )
+texture = ExtResource( 2 )
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -12.0
+autoplay = true
