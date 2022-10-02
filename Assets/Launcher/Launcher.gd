@@ -16,3 +16,4 @@ func _on_Area2D_body_entered(body):
 	player.coyoteTimer = -1
 
 	$AnimationPlayer.play('Spring Bounce')
+	$AudioStreamPlayer2D.play()
