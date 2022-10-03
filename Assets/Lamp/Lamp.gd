@@ -31,6 +31,8 @@ func _physics_process(delta):
 		update_fire(true)
 
 func light():
+	if timer < time * 0.67:
+		$IgniteSound.play()
 	timer = time
 
 func update_fire(soundOn: bool):

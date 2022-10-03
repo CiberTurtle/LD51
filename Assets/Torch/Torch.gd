@@ -34,6 +34,8 @@ func _physics_process(delta):
 		var fire = body as Campfire
 		if fire:
 			if fire.is_on:
+				if timer < time - 0.4:
+					$IgniteSound.play()
 				timer = time
 			else:
 				if is_on:
@@ -54,6 +56,7 @@ func _physics_process(delta):
 			return
 
 func update():
+	if is_on: $IgniteSound.play()
 	$On.visible = is_on
 	$Off.visible = !is_on
 	$On/Sound.playing = is_on
