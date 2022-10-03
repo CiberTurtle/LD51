@@ -18,4 +18,4 @@ func _on_Bumper_body_entered(body):
 	player.coyoteTimer = -1
 
 	# $AnimationPlayer.play('Spring Bounce')
-	# $AudioStreamPlayer2D.play()
+	$Bump.play()

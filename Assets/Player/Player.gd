@@ -104,17 +104,13 @@ func do_jump(delta):
 
 var inputMoveDir = 0.0
 var inputJumpCancel = false
-var inputPickup = false
 func get_input():
-	inputMoveDir = Input.get_axis("move_left", "move_right")
+	inputMoveDir = sign(Input.get_axis("move_left", "move_right"))
 	if(Input.is_action_just_pressed("move_jump")):
 		jumpBufferTimer = jumpBufferTime
 
 	if(Input.is_action_just_released("move_jump")):
 		inputJumpCancel = true
-
-	if(Input.action_release("pickup")):
-		inputPickup = true
 
 func say(text: String):
 	var charTime = 1.0 / 30
