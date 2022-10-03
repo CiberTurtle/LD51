@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+const Egg = preload("res://Assets/Egg/Egg.gd")
+
+export var eggRequirement = 3
+
 export var moveInc = 32.0
 export var moveDec = 16.0
 export var moveIncAir = 24.0
@@ -26,7 +30,7 @@ export var stepTimeVar = 0.025
 var stepTimer = 0
 
 func _ready():
-	pass
+	Vars.player = self
 
 func _process(delta):
 	get_input()
@@ -128,3 +132,21 @@ func _on_Tween_tween_completed(object, key):
 
 func _on_Timer_timeout():
 	$Say/Text.visible = false
+
+func pickup():
+	var v = Vars.eggsCollectedToltal
+	if v == 1:
+		$PickupSound/Pickup1.play()
+	else: if 2:
+		$PickupSound/Pickup2.play()
+	else: if 3:
+		$PickupSound/Pickup3.play()
+
+func drop():
+	var v = Vars.eggsDeposited
+	if v == 1:
+		$DropSound/Pickup1.play()
+	else: if 2:
+		$DropSound/Pickup2.play()
+	else: if 3:
+		$DropSound/Pickup3.play()

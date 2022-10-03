@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sound3.wav-649e8b2c310c0cee49ee0f6b79bdd823.sample"
+
+[deps]
+
+source_file="res://Assets/Egg/Collect/sound3.wav"
+dest_files=[ "res://.import/sound3.wav-649e8b2c310c0cee49ee0f6b79bdd823.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

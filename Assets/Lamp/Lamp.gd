@@ -8,6 +8,8 @@ export var time = 10.0
 export(Array, NodePath) var turnOn = []
 export(Array, NodePath) var turnOff = []
 
+export var offAlpha = 0.35;
+
 var timer = 0.0
 var lerpedTimer = 0.0
 
@@ -57,6 +59,7 @@ func update_fire(soundOn: bool):
 func set_things(paths: Array, state: bool):
 	for path in paths:
 		var obj = get_node(path) as CollisionObject2D
-		obj.visible = state
+		# obj.visible = state
+		obj.modulate = Color(1.0, 1.0, 1.0, 1.0 if state else offAlpha)
 		obj.set_collision_layer_bit(0, state)
 		obj.set_collision_mask_bit(0, state)
