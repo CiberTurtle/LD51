@@ -36,6 +36,7 @@ func _physics_process(delta):
 			if fire.is_on:
 				if timer < time - 0.4:
 					$IgniteSound.play()
+					Vars.lastCampfire = fire;
 				timer = time
 			else:
 				if is_on:

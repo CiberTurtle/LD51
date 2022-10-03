@@ -39,6 +39,11 @@ var hExtraSpeed = 0.0
 var hMoveSpeed = 0.0
 var vSpeed = 0.0
 func _physics_process(delta):
+	if respawn:
+		if Vars.lastCampfire:
+			global_position = Vars.lastCampfire.global_position - Vector2(0, 12)
+		respawn = false
+	
 	do_move(delta)
 	do_grav(delta)
 	do_jump(delta)
@@ -108,6 +113,7 @@ func do_jump(delta):
 
 var inputMoveDir = 0.0
 var inputJumpCancel = false
+var respawn = false
 func get_input():
 	inputMoveDir = sign(Input.get_axis("move_left", "move_right"))
 	if(Input.is_action_just_pressed("move_jump")):
@@ -115,6 +121,9 @@ func get_input():
 
 	if(Input.is_action_just_released("move_jump")):
 		inputJumpCancel = true
+		
+	if Input.is_action_just_pressed("debug_respawn"):
+		respawn = true
 
 func say(text: String):
 	var charTime = 1.0 / 30
