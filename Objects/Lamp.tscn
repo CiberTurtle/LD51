@@ -1,11 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Textures/Light/Light 2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Lamp/On.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Lamp/Lamp.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Lamp/Off.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Lamp/Off.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Lamp/On.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Glow.tres" type="Material" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 25.25, 0, 1, Vector2( 0.039604, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.506818 ), -0.513519, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.541176, 0.921569, 0.945098, 1, 0.223529, 0.278431, 0.470588, 1 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.747525, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Lamp" type="Area2D"]
 collision_layer = 2
@@ -36,3 +48,56 @@ texture = ExtResource( 1 )
 texture_scale = 0.75
 color = Color( 0.854902, 0.945098, 0.94902, 1 )
 energy = 0.75
+
+[node name="TorchHeadParticles" type="CPUParticles2D" parent="On"]
+position = Vector2( 0, 2 )
+amount = 20
+lifetime = 0.2
+speed_scale = 0.5
+lifetime_randomness = 0.5
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2( 0, -1 )
+spread = 30.0
+gravity = Vector2( 0, -4 )
+initial_velocity = 20.0
+initial_velocity_random = 0.75
+angular_velocity = 30.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.02
+orbit_velocity_random = 1.0
+damping = 2.0
+damping_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 2 )
+color_initial_ramp = SubResource( 3 )
+
+[node name="OnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="OffSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Puff" type="CPUParticles2D" parent="."]
+material = ExtResource( 7 )
+emitting = false
+amount = 16
+lifetime = 1.2
+one_shot = true
+explosiveness = 0.5
+spread = 180.0
+gravity = Vector2( 0, -64 )
+initial_velocity = 89.32
+initial_velocity_random = 0.18
+linear_accel = -100.0
+radial_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 4 )
+color = Color( 0.541176, 0.921569, 0.945098, 1 )

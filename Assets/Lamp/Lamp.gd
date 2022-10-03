@@ -14,7 +14,7 @@ var lerpedTimer = 0.0
 export var is_on = false
 
 func _ready():
-	update()
+	update_fire(false)
 
 func _process(delta):
 	lerpedTimer = move_toward(lerpedTimer, timer, delta * 50)
@@ -28,18 +28,23 @@ func _physics_process(delta):
 
 	if timer > 0 != is_on:
 		is_on = timer > 0
-		update()
+		update_fire(true)
 
 func light():
 	timer = time
 
-func update():
+func update_fire(soundOn: bool):
 	is_on = timer > 0
 
 	if is_on:
 		emit_signal('on')
+		if soundOn: $OnSound.play()
 	else:
 		emit_signal('off')
+		if soundOn: $OffSound.play()
+
+	if soundOn: $Puff.restart()
+	# $Puff.emitting = true
 
 	set_things(turnOn, is_on)
 	set_things(turnOff, !is_on)

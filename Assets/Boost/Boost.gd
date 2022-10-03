@@ -32,4 +32,4 @@ func _on_Boost_body_entered(body):
 	speed = boostSpeed
 
 	$AudioStreamPlayer2D.play()
-	$CPUParticles2D.emitting = true;
+	$CPUParticles2D.restart()
