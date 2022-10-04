@@ -60,6 +60,7 @@ func set_things(paths: Array, state: bool):
 	for path in paths:
 		var obj = get_node(path) as CollisionObject2D
 		# obj.visible = state
-		obj.modulate = Color(1.0, 1.0, 1.0, 1.0 if state else offAlpha)
+		var color = Color(1.0, 1.0, 1.0, 1.0) if state else Color(0.0, 0.0, 0.0, 0.5)
+		obj.modulate = color
 		obj.set_collision_layer_bit(0, state)
 		obj.set_collision_mask_bit(0, state)

@@ -40,10 +40,8 @@ var hMoveSpeed = 0.0
 var vSpeed = 0.0
 func _physics_process(delta):
 	if respawn:
-		if Vars.lastCampfire:
-			global_position = Vars.lastCampfire.global_position - Vector2(0, 12)
-		respawn = false
-	
+		respawn_me()
+	respawn = false
 	do_move(delta)
 	do_grav(delta)
 	do_jump(delta)
@@ -121,7 +119,7 @@ func get_input():
 
 	if(Input.is_action_just_released("move_jump")):
 		inputJumpCancel = true
-		
+
 	if Input.is_action_just_pressed("debug_respawn"):
 		respawn = true
 
@@ -134,10 +132,10 @@ func say(text: String):
 	$Say/Text.visible = true
 
 func _on_Tween_tween_completed(object, key):
-	var text = $Say/Text.text
-	var charTime = 1.0 / 8
+	# var text = $Say/Text.text
+	# var charTime = 1.0 / 8
 
-	$Say/Timer.start(text.length() * charTime)
+	$Say/Timer.start(5)
 
 func _on_Timer_timeout():
 	$Say/Text.visible = false
@@ -159,3 +157,13 @@ func drop():
 		$DropSound/Pickup2.play()
 	else: if 3:
 		$DropSound/Pickup3.play()
+
+func respawn_me():
+	if Vars.lastCampfire:
+		global_position = Vars.lastCampfire.global_position - Vector2(0, 0)
+		hMoveSpeed = 0
+		hExtraSpeed = 0
+		vSpeed = 0
+
+func relight():
+	$Flip/Torch.timer = $Flip/Torch.time
